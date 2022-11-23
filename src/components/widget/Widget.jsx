@@ -6,14 +6,14 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import { ListAltOutlined, SearchOffOutlined, SearchOutlined } from "@mui/icons-material";
 
-const Widget = ({ type }) => {
-  let data;
+const Widget = (props) => {
+  // let data;
 
   //temporary
-  const amount = 100;
+  /* const amount = 100;
   const diff = 20;
-
-  switch (type) {
+ */
+  /* switch (type) {
     case "user":
       data = {
         title: "USERS",
@@ -77,21 +77,22 @@ const Widget = ({ type }) => {
       break;
     default:
       break;
-  }
-
+  } */
+  const {data} = props
+  console.log(data,"dataa")
   return (
     <div className="widget">
       <div className="left">
         <span className="title">{data.title}</span>
         <span className="counter">
-          {data.isMoney && "$"} {amount}
+          {data.isMoney && "$"}
         </span>
         <span className="link">{data.link}</span>
       </div>
       <div className="right">
         <div className="percentage positive">
           <KeyboardArrowUpIcon />
-          {diff} %
+          
         </div>
         {data.icon}
       </div>

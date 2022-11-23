@@ -29,10 +29,12 @@ const Sidebar = () => {
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
+          <Link to="/" style={{ textDecoration: "none" }}>
           <li>
             <DashboardIcon className="icon" />
             <span>Principal Aquifer</span>
           </li>
+          </Link>
           <p className="title">MANAGE</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>
@@ -60,10 +62,13 @@ const Sidebar = () => {
             <TrackChangesOutlined className="icon" />
             <span>Simulation</span>
           </li>
+          <Link to="/globalmaps" style={{ textDecoration: "none" }}>
           <li>
             <MapOutlined className="icon" />
             <span>Global Maps</span>
           </li>
+          </Link>
+          
 
           <p className="title">OPERATIONS</p>
 

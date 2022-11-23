@@ -13,6 +13,7 @@ import "./style/styles.css"
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import KnowYourAquifer from "./pages/know-your-aquifer"
+import GlobalMaps from "./pages/global-maps/global-maps";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
 
@@ -32,8 +33,9 @@ function App() {
               />
             </Route>
             <Route path="aquifers" element={<KnowYourAquifer />}>
-
             </Route>
+            <Route path="globalmaps" element={<GlobalMaps />}></Route>
+
             <Route path="products">
               <Route index element={<List />} />
               <Route path=":productId" element={<Single />} />
