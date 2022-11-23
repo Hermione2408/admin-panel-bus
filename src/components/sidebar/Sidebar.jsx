@@ -66,10 +66,13 @@ const Sidebar = () => {
           </li>
 
           <p className="title">OPERATIONS</p>
+          <Link to="/aquifers" style={{ textDecoration: "none" }}>
+
           <li>
             <SettingsSystemDaydreamOutlinedIcon className="icon" />
             <span>Acquifer Reports</span>
           </li>
+          </Link>
           <li>
             <NotificationsNoneIcon className="icon" />
             <span>Notifications</span>

@@ -18,3 +18,12 @@
     letter-spacing: 0.4px;
     color: #252733;
 }
+
+.aquifer {
+    display: flex;
+    width: 100%;
+    .aquiferContainer {
+      flex: 6;
+    }
+  }
+  

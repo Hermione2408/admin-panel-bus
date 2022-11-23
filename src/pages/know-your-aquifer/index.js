@@ -11,26 +11,32 @@ let stateList = state_arr.map((el) => {
 
 function KnowyourAquifer() {
   return (
-    <div>
-      <div className="a-flex">
-        <div className="ml-16">
-          <RectangleContainer>
-            <div className="a-flex a-fdc a-jcsb a-hfull p8">
-              <div className="state-text">Select State</div>
-              <Select options={stateList} />
+    <div className="aquifer">
+      <Sidebar />
+      <div className="aquiferContainer">
+        <Navbar />
+        <div>
+            <div className="a-flex">
+              <div className="ml-16">
+                <RectangleContainer>
+                  <div className="a-flex a-fdc a-jcsb a-hfull p8">
+                    <div className="state-text">Select State</div>
+                    <Select options={stateList} />
+                  </div>
+                </RectangleContainer>
+              </div>
+              <div className="ml-16 a-hfull p8">
+                <RectangleContainer >Hi</RectangleContainer>
+              </div>
+              <div className="ml-16 a-hfull p8">
+                <RectangleContainer >Hi</RectangleContainer>
+              </div>
             </div>
-          </RectangleContainer>
+            <div className="map-container">
+              <Map />
+            </div>
+          </div>
         </div>
-        <div className="ml-16 a-hfull p8">
-          <RectangleContainer >Hi</RectangleContainer>
-        </div>
-        <div className="ml-16 a-hfull p8">
-          <RectangleContainer >Hi</RectangleContainer>
-        </div>
-      </div>
-      <div className="map-container">
-        <Map />
-      </div>
     </div>
   );
 }
