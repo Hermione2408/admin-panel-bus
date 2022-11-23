@@ -62,3 +62,7 @@ function print_city(city_id, city_index){
 		option_str.options[option_str.length] = new Option(city_arr[i],city_arr[i]);
 	}
 }
+
+let stateLatLang=state_arr.map((el)=>{
+	return {label:el,value:el}
+})

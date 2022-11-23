@@ -42,7 +42,20 @@ function KnowyourAquifer() {
                 </RectangleContainer>
               </div>
               <div className="ml-16 a-hfull p8">
-                <RectangleContainer ></RectangleContainer>
+                <RectangleContainer >
+                <div className="a-flex a-fdc a-jcsb a-hfull">
+                    <div className="state-text">Total Principal Aquifer in Regions</div>
+                    <div>98</div>
+                  </div>
+                </RectangleContainer>
+              </div>
+              <div className="ml-16 a-hfull p8">
+                <RectangleContainer >
+                <div className="a-flex a-fdc a-jcsb a-hfull">
+                    <div className="state-text">Know any aquifer</div>
+                    <div>Report?</div>
+                  </div>
+                </RectangleContainer>
               </div>
             </div>
             <div className="map-container">

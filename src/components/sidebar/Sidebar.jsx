@@ -31,16 +31,16 @@ const Sidebar = () => {
           <p className="title">MAIN</p>
           <li>
             <DashboardIcon className="icon" />
-            <span>Dashboard</span>
+            <span>Principal Aquifer</span>
           </li>
           <p className="title">MANAGE</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
-              <span>Users</span>
+              <span>View Entries</span>
             </li>
           </Link>
-          <Link to="/products" style={{ textDecoration: "none" }}>
+          <Link to="/aquifers" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
               <span>Acquifers</span>
@@ -66,21 +66,19 @@ const Sidebar = () => {
           </li>
 
           <p className="title">OPERATIONS</p>
-          <Link to="/aquifers" style={{ textDecoration: "none" }}>
 
           <li>
             <SettingsSystemDaydreamOutlinedIcon className="icon" />
             <span>Acquifer Reports</span>
           </li>
-          </Link>
           <li>
             <NotificationsNoneIcon className="icon" />
             <span>Notifications</span>
           </li>
-          <li>
+          {/* <li>
             <SettingsApplicationsIcon className="icon" />
             <span>Settings</span>
-          </li>
+          </li> */}
           <p className="title">USER</p>
           <li>
             <AccountCircleOutlinedIcon className="icon" />
