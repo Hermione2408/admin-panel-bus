@@ -13,11 +13,20 @@ import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
+import { UserContext } from "../../context/userContext";
 import { useContext } from "react";
-import { MapOutlined, SignalCellularNoSimOutlined, SourceOutlined, TrackChangesOutlined, WifiCalling3Rounded } from "@mui/icons-material";
-
+import {
+  MapOutlined,
+  SignalCellularNoSimOutlined,
+  SourceOutlined,
+  TrackChangesOutlined,
+  WifiCalling3Rounded,
+} from "@mui/icons-material";
+import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
+  const { userDetails } = useContext(UserContext);
+  console.log(userDetails,"000000")
   return (
     <div className="sidebar">
       <div className="top">
@@ -30,10 +39,10 @@ const Sidebar = () => {
         <ul>
           <p className="title">MAIN</p>
           <Link to="/" style={{ textDecoration: "none" }}>
-          <li>
-            <DashboardIcon className="icon" />
-            <span>Principal Aquifer</span>
-          </li>
+            <li>
+              <DashboardIcon className="icon" />
+              <span>Principal Aquifer</span>
+            </li>
           </Link>
           <p className="title">MANAGE</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
@@ -63,12 +72,11 @@ const Sidebar = () => {
             <span>Simulation</span>
           </li>
           <Link to="/globalmaps" style={{ textDecoration: "none" }}>
-          <li>
-            <MapOutlined className="icon" />
-            <span>Global Maps</span>
-          </li>
+            <li>
+              <MapOutlined className="icon" />
+              <span>Global Maps</span>
+            </li>
           </Link>
-          
 
           <p className="title">OPERATIONS</p>
 
@@ -89,10 +97,19 @@ const Sidebar = () => {
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
           </li>
-          <li>
-            <ExitToAppIcon className="icon" />
-            <span>Logout</span>
-          </li>
+          {userDetails ? (
+            <li>
+              <ExitToAppIcon className="icon" />
+              <span>Logout</span>
+            </li>
+          ) : (
+            <Link to="/login" style={{ textDecoration: "none" }}>
+              <li>
+                <LoginOutlinedIcon className="icon" />
+                <span>Login</span>
+              </li>
+            </Link>
+          )}
         </ul>
       </div>
       <div className="bottom">

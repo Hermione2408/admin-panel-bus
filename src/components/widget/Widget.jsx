@@ -87,15 +87,18 @@ const Widget = (props) => {
         <span className="counter">
           {data.isMoney && "$"}
         </span>
-        <span className="link">{data.link}</span>
+        {data.link && <span className="link">{data.link}</span>}
+
+        {data.isCount && <span className="count">{data.count}</span>}
       </div>
-      <div className="right">
+      {!data.isCount && <div className="right">
         <div className="percentage positive">
           <KeyboardArrowUpIcon />
           
         </div>
         {data.icon}
-      </div>
+      </div>}
+
     </div>
   );
 };
