@@ -28,14 +28,13 @@ const Sidebar = () => {
       <hr />
       <div className="center">
         <ul>
-          <p className="title">MAIN</p>
+          
           <Link to="/" style={{ textDecoration: "none" }}>
           <li>
             <DashboardIcon className="icon" />
             <span>Principal Aquifer</span>
           </li>
           </Link>
-          <p className="title">MANAGE</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
@@ -45,7 +44,7 @@ const Sidebar = () => {
           <Link to="/aquifers" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
-              <span>Acquifers</span>
+              <span>Aquifers</span>
             </li>
           </Link>
           <li>
@@ -53,15 +52,12 @@ const Sidebar = () => {
             <span>About</span>
           </li>
 
-          <p className="title">SERVICE</p>
+          
           <li>
             <InsertChartIcon className="icon" />
-            <span>Statistics</span>
+            <span>Analysis</span>
           </li>
-          <li>
-            <TrackChangesOutlined className="icon" />
-            <span>Simulation</span>
-          </li>
+
           <Link to="/globalmaps" style={{ textDecoration: "none" }}>
           <li>
             <MapOutlined className="icon" />
@@ -70,12 +66,9 @@ const Sidebar = () => {
           </Link>
           
 
-          <p className="title">OPERATIONS</p>
+          
 
-          <li>
-            <SettingsSystemDaydreamOutlinedIcon className="icon" />
-            <span>Acquifer Reports</span>
-          </li>
+          
           <li>
             <NotificationsNoneIcon className="icon" />
             <span>Notifications</span>
@@ -84,11 +77,8 @@ const Sidebar = () => {
             <SettingsApplicationsIcon className="icon" />
             <span>Settings</span>
           </li> */}
-          <p className="title">USER</p>
-          <li>
-            <AccountCircleOutlinedIcon className="icon" />
-            <span>Profile</span>
-          </li>
+        
+          
           <li>
             <ExitToAppIcon className="icon" />
             <span>Logout</span>
