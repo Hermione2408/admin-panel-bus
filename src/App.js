@@ -6,6 +6,10 @@ import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
+import "./style/dimension.css"
+import "./style/flex.css"
+import "./style/styles.css"
+
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import KnowYourAquifer from "./pages/know-your-aquifer"
