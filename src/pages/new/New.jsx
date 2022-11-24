@@ -14,7 +14,7 @@ let stateList = state_arr.map((el,i) => {
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   const [id,setId] = useState("")
-  const [state,setState] = useState("")
+  const [state,setState] = useState(stateList[0].label)
   const [district,setDistrict] = useState("")
   const [type,setType] = useState("")
   const [amount,setAmount] = useState("")
@@ -37,6 +37,18 @@ const New = ({ inputs, title }) => {
     return result;
 }
 
+const resetState = () =>{
+  setFile("")
+  setId("")
+  setState("")
+  setDistrict("")
+  setType("")
+  setAmount("")
+  setQuality("")
+  setLat(26)
+  setLong(71)
+}
+
   const SubmitForm = ()=>{
     console.log('FORM SUBMIT')
     
@@ -55,7 +67,10 @@ const New = ({ inputs, title }) => {
     }
     console.log(dataToSend,"DATA")
     let url = 'http://localhost:8383/bulkData'
-    axios.post(url,dataToSend).then((res)=> console.log(res,"RESS"))
+    axios.post(url,dataToSend).then((res)=> {
+      if(res.status == 200){
+        resetState()
+      }})
     .catch((err)=>console.log(err)) 
 }
 
@@ -104,12 +119,12 @@ const New = ({ inputs, title }) => {
                   <label>State</label>
                   <Select options={stateList} onChange={(val)=>{ 
                     SetSelectedStateIndex(val.id)
-                    setState(val.name)
+                    setState(val.label)
                     }} />
               </div>
               <div className="formInput" >
                   <label>Distrcit</label>
-                  <Select options={districtData} onChange={(val)=>setDistrict(val.name)} />
+                  <Select options={districtData} onChange={(val)=>setDistrict(val.label)} />
               </div>
 
               <div className="formInput" >
