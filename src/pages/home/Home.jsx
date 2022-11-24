@@ -81,7 +81,7 @@ const Home = () => {
           ),
         },
         {
-          title: "No. of principal aquifers",
+          title: "No. of aquifers depletion greather than 50%",
           isMoney: false,
           isCount:true,
           count: 21,
@@ -96,7 +96,7 @@ const Home = () => {
           ),
         },
         {
-          title: "No. of pending tasks",
+          title: "Data to be reviewed",
           isMoney: false,
           isCount:true,
           count: 17,
@@ -130,7 +130,7 @@ const Home = () => {
     case 'collector':
       widgetData = [
         {
-          title: "No. of supervisors",
+          title: "No. of assigned aquifers",
           isMoney: false,
           isCount:true,
           count: 13,
@@ -142,7 +142,7 @@ const Home = () => {
           ),
         },
         {
-          title: "No. of principal aquifers",
+          title: "No. of aquifer depletion greater than 50%",
           isMoney: false,
           isCount:true,
           count: 11,
@@ -157,7 +157,7 @@ const Home = () => {
           ),
         },
         {
-          title: "No. of pending tasks",
+          title: "Data filled",
           isMoney: false,
           isCount:true,
           count: 17,
@@ -191,7 +191,7 @@ const Home = () => {
     case 'user':
       widgetData = [
         {
-          title: "No. of Aquifers",
+          title: "No. of Aquifers depltetion greater than 50% under 20km",
           isMoney: false,
           isCount:true,
           count:34,
@@ -202,6 +202,34 @@ const Home = () => {
             />
           ),
         },
+        {
+          title: "Open surveys",
+          isMoney: false,
+          isCount:true,
+          count:24,
+          icon: (
+            <SearchOutlined
+              className="icon"
+              style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
+            />
+          ),
+        },
+        {
+          title: "Quality level of water",
+          isMoney: false,
+          isCount:true,
+          count:64,
+          icon: (
+            <ListAltOutlined
+              className="icon"
+              style={{
+                backgroundColor: "rgba(218, 165, 32, 0.2)",
+                color: "goldenrod",
+              }}
+            />
+          ),
+        },
+        
         {
           title: "Alerts",
           isMoney: false,

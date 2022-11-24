@@ -18,7 +18,7 @@ const Widget = (props) => {
         </span>
         {data.link && <span className="link">{data.link}</span>}
 
-        {data.isCount && <span className="count">{data.count}</span>}
+        {data.isCount && <span className="count" style={{color:data.count> 50 ? '#EB1D36' : (data.count < 25 ?'#36AE7C':'#F9D923')}}>{data.count}</span>}
       </div>
       {!data.isCount && <div className="right">
         <div className="percentage positive">
