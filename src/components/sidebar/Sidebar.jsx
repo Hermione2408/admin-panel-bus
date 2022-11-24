@@ -11,22 +11,24 @@ import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { UserContext } from "../../context/userContext";
-import { useContext } from "react";
+import { useContext,useEffect,useState } from "react";
+
 import {
   MapOutlined,
-  SignalCellularNoSimOutlined,
   SourceOutlined,
   TrackChangesOutlined,
-  WifiCalling3Rounded,
 } from "@mui/icons-material";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
-  const { userDetails } = useContext(UserContext);
-  console.log(userDetails,"000000")
+  const { userDetails,dispatch :dispatchUserDetails } = useContext(UserContext);
+  const onClickLogout = ()=>{
+    dispatchUserDetails({type:'REMOVE'})
+    localStorage.removeItem('userDetails')
+  }
   return (
     <div className="sidebar">
       <div className="top">
@@ -90,7 +92,7 @@ const Sidebar = () => {
           
           
           {userDetails ? (
-            <li>
+            <li onClick={onClickLogout}>
               <ExitToAppIcon className="icon" />
               <span>Logout</span>
             </li>

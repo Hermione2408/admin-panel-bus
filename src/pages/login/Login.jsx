@@ -66,7 +66,9 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <Select options={userOptions} onChange={(val)=>SetUserType(val.label)} />
+        <div className="mt-16">
+          <Select options={userOptions} onChange={(val)=>SetUserType(val.label)} />
+        </div>
 
         <button onClick={()=>onClickLogin()}>Login</button>
         <div className="having-issues">Having issues?</div>
