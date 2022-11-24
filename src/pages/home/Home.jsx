@@ -27,6 +27,8 @@ const Home = () => {
           isMoney: false,
           isCount:true,
           count: 34,
+          colorCode:true,
+          total:141,
           icon: (
             <SearchOutlined
               className="icon"
@@ -85,6 +87,8 @@ const Home = () => {
           isMoney: false,
           isCount:true,
           count: 21,
+          colorCode:true,
+          total:141,
           icon: (
             <ListAltOutlined
               className="icon"
@@ -145,6 +149,8 @@ const Home = () => {
           title: "No. of aquifer depletion greater than 50%",
           isMoney: false,
           isCount:true,
+          colorCode:true,
+          total:141,
           count: 11,
           icon: (
             <ListAltOutlined
@@ -194,6 +200,8 @@ const Home = () => {
           title: "No. of Aquifers depltetion greater than 50% under 20km",
           isMoney: false,
           isCount:true,
+          colorCode:true,
+          total:141,
           count:34,
           icon: (
             <SearchOutlined
@@ -255,6 +263,8 @@ const Home = () => {
           isMoney: false,
           isCount:true,
           count:19,
+          total:141,
+          colorCode:true,
           icon: (
             <SearchOutlined
               className="icon"
