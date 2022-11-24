@@ -69,8 +69,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="wrapper">
         <div className="search">
-          <input type="text" placeholder="Search..." />
-          <SearchOutlinedIcon />
+          <div>{userDetails  && userDetails.userType ? userDetails.userType : 'Guest User'}</div>
         </div>
         <div className="items">
           <div className="item">
@@ -135,7 +134,7 @@ const Navbar = () => {
               className="avatar"
             />
           </div>}
-          {userDetails ? (
+          {userDetails !==null ? (
             <div onClick={onClickLogout} className="item">
               <ExitToAppIcon className="icon" />
               <span>Logout</span>

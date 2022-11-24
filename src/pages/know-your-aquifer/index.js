@@ -15,11 +15,26 @@ function KnowyourAquifer() {
 
   const [selectedStateIndex,SetSelectedStateIndex] = useState(0)
   const [markerList,setMarkerList] = useState([])
+  const [selectedState,SetSelectedState] = useState(null)
+  const [selecteddistrict,SetSelectedDistrict] = useState(null)
   let districtList = s_a[selectedStateIndex+1].split("|")
   let districtData = districtList.map((el,i)=>{
     return { value: el, label: el,id:i };
 
   })
+
+  const fetchStateDistrictData = ()=>{
+    let dataToSend={
+      district:selecteddistrict,
+      state:selectedState
+  }
+  console.log(dataToSend,"DATA")
+  let url = 'http://localhost:8383/findDistrict'
+  axios.get(url,dataToSend).then((res)=> {
+    console.log(res)  
+  })
+  .catch((err)=>console.log(err)) 
+  }
 
   useEffect(() => {
     let url = 'http://localhost:8383/plotter'
@@ -48,7 +63,9 @@ function KnowyourAquifer() {
                 <RectangleContainer>
                   <div className="a-flex a-fdc a-jcsb a-hfull">
                     <div className="state-text">Select State</div>
-                    <Select options={stateList} onChange={(val)=>SetSelectedStateIndex(val.id)} />
+                    <Select options={stateList} onChange={(val)=>{
+                      SetSelectedState(val.label)
+                      SetSelectedStateIndex(val.id)}} />
                   </div>
                 </RectangleContainer>
               </div>
@@ -56,7 +73,10 @@ function KnowyourAquifer() {
                 <RectangleContainer >
                 <div className="a-flex a-fdc a-jcsb a-hfull">
                     <div className="state-text">Select District</div>
-                    <Select options={districtData} />
+                    <Select options={districtData} onChange={(val)=>{
+                      SetSelectedDistrict(val.label)
+                      fetchStateDistrictData()
+                      }} />
                   </div>
                 </RectangleContainer>
               </div>
