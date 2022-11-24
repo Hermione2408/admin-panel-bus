@@ -188,7 +188,7 @@ const Home = () => {
           <Featured />
           <Chart title="Last 6 Months (Capacity Vs Month Graph)" aspect={2 / 1} />
         </div>
-        {userDetails.userType === 'Supervisor' &&<div className="listContainer">
+        {userDetails && userDetails.userType &&  userDetails.userType === 'Supervisor' &&<div className="listContainer">
           <div className="listTitle">Latest Trackings:-</div>
           <Table />
         </div>}
