@@ -55,7 +55,7 @@ const New = ({ inputs, title }) => {
     }
     console.log(dataToSend,"DATA")
     let url = 'http://localhost:8383/bulkData'
-    axios.post(url,{body:dataToSend}).then((res)=> console.log(res,"RESS"))
+    axios.post(url,dataToSend).then((res)=> console.log(res,"RESS"))
     .catch((err)=>console.log(err)) 
 }
 

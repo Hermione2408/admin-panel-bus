@@ -15,7 +15,7 @@ import { DarkModeContext } from "./context/darkModeContext";
 import KnowYourAquifer from "./pages/know-your-aquifer";
 import GlobalMaps from "./pages/global-maps/global-maps";
 import { UserContext } from "./context/userContext";
-import { Analytics } from "@mui/icons-material";
+import Analysis from "./pages/analysis/analysis"
 function App() {
   const { darkMode } = useContext(DarkModeContext);
   const { userDetails } = useContext(UserContext);
@@ -44,9 +44,8 @@ function App() {
               />
             </Route>
             <Route path="aquifers" element={<KnowYourAquifer />}></Route>
-            <Route path="analytics" element={<Analytics />}></Route>
             <Route path="globalmaps" element={<GlobalMaps />}></Route>
-
+            <Route path="analysis" element={<Analysis />}></Route>
             <Route path="products">
               <Route index element={<List />} />
               <Route path=":productId" element={<Single />} />
