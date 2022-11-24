@@ -11,8 +11,7 @@ import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalance
 import { useContext} from "react";
 import { UserContext } from "../../context/userContext";
 
-import {counter} from "./idpwd.json"
-const abc = counter['id'].length
+
 
 const Home = () => {
   const { userDetails } = useContext(UserContext);
@@ -71,7 +70,7 @@ const Home = () => {
           title: "No. of data collectors",
           isMoney: false,
           isCount:true,
-          count: abc,
+          count: 6,
           icon: (
             <SearchOutlined
               className="icon"
