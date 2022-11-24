@@ -63,12 +63,12 @@ const Sidebar = () => {
             <span>About</span>
           </li>
 
-          
+          <Link to="/analysis" style={{ textDecoration: "none" }}>
           <li>
             <InsertChartIcon className="icon" />
             <span>Analysis</span>
           </li>
-
+ </Link>
           <Link to="/globalmaps" style={{ textDecoration: "none" }}>
             <li>
               <MapOutlined className="icon" />

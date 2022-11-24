@@ -17,16 +17,16 @@ const Featured = () => {
           <CircularProgressbar value={83} text={"83%"} strokeWidth={5} />
         </div>
         <p className="title">Total readings today</p>
-        <p className="amount">3400 litres</p>
+        <p className="amount">3400 Kilolitres</p>
         <p className="desc">
           Previous readings processing. Last readings may not be included.
         </p>
         <div className="summary">
           <div className="item">
-            <div className="itemTitle">Capacity</div>
+            <div className="itemTitle">Quality Index</div>
             <div className="itemResult negative">
               <KeyboardArrowDownIcon fontSize="small"/>
-              <div className="resultAmount">3400 L</div>
+              <div className="resultAmount">84</div>
             </div>
           </div>
           <div className="item">
@@ -37,10 +37,10 @@ const Featured = () => {
             </div>
           </div>
           <div className="item">
-            <div className="itemTitle">Average</div>
+            <div className="itemTitle">Increase</div>
             <div className="itemResult positive">
               <KeyboardArrowUpOutlinedIcon fontSize="small"/>
-              <div className="resultAmount">12.4%</div>
+              <div className="resultAmount">0.2%</div>
             </div>
           </div>
         </div>
