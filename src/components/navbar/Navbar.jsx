@@ -9,6 +9,7 @@ import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext, useState, useEffect } from "react";
+import { UserContext } from "../../context/userContext";
 
 const Navbar = () => {
   const { dispatch } = useContext(DarkModeContext);
@@ -45,6 +46,8 @@ const Navbar = () => {
       img: NotificationsNoneOutlinedIcon,
     },
   ]);
+  const { userDetails} = useContext(UserContext);
+
   const removeNotification = (index) => {
     let notificationsCopy = notificationsArray;
     notificationsCopy.splice(index, 1);
@@ -72,7 +75,7 @@ const Navbar = () => {
           {/* <div className="item">
             <FullscreenExitOutlinedIcon className="icon" />
           </div> */}
-          <div className="item">
+          {userDetails &&<div className="item">
             <NotificationsNoneOutlinedIcon
               className="icon"
               onClick={() => setShowNotifications(!showNotifications)}
@@ -106,21 +109,21 @@ const Navbar = () => {
                   })}
               </div>
             )}
-          </div>
-          <div className="item">
+          </div>}
+          {userDetails &&<div className="item">
             <ChatBubbleOutlineOutlinedIcon className="icon" />
             <div className="counter">2</div>
-          </div>
+          </div>}
           <div className="item">
             <ListOutlinedIcon className="icon" />
           </div>
-          <div className="item">
+          {userDetails &&<div className="item">
             <img
               src="https://images.pexels.com/photos/941693/pexels-photo-941693.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
               alt=""
               className="avatar"
             />
-          </div>
+          </div>}
         </div>
       </div>
     </div>
