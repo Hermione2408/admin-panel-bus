@@ -39,6 +39,7 @@ const New = ({ inputs, title }) => {
 }
 
   const SubmitForm = ()=>{
+    console.log('FORM SUBMIT')
     if(!id || !state || !district || !type || !amount || !quality || !lat || !long){
       console.log('ERROR')
       //return toast('One or more fields invalid')
@@ -58,9 +59,9 @@ const New = ({ inputs, title }) => {
         ID:generateString(4)
     }
     console.log(dataToSend,"DATA")
-    /* let url = 'http://localhost:8383/bulkData'
+    let url = 'http://localhost:8383/bulkData'
     axios.post(url,{body:dataToSend}).then((res)=> console.log(res,"RESS"))
-    .catch((err)=>console.log(err)) */
+    .catch((err)=>console.log(err)) 
   }
 }
 
@@ -107,11 +108,14 @@ const New = ({ inputs, title }) => {
               </div>
               <div className="formInput" >
                   <label>State</label>
-                  <Select options={stateList} onChange={(val)=>SetSelectedStateIndex(val.id)} />
+                  <Select options={stateList} onChange={(val)=>{ 
+                    SetSelectedStateIndex(val.id)
+                    setState(val.name)
+                    }} />
               </div>
               <div className="formInput" >
                   <label>Distrcit</label>
-                  <Select options={districtData} />
+                  <Select options={districtData} onChange={(val)=>setDistrict(val.name)} />
               </div>
 
               <div className="formInput" >
@@ -142,7 +146,7 @@ const New = ({ inputs, title }) => {
                   <label>Annual Low</label>
                   <input value={annLow} onChange={(e)=>setAnnLow(e.target.value)} type='text' placeholder={89} />
               </div>
-              <button onClick={SubmitForm}>Send</button>
+              <button onClick={()=>SubmitForm()}>Send</button>
             </form>
           </div>
         </div>
