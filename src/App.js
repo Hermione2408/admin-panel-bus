@@ -6,28 +6,27 @@ import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
-import "./style/dimension.css"
-import "./style/flex.css"
-import "./style/styles.css"
-import { Toaster } from 'react-hot-toast';
+import "./style/dimension.css";
+import "./style/flex.css";
+import "./style/styles.css";
 
 import { useContext, useEffect } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
-import KnowYourAquifer from "./pages/know-your-aquifer"
+import KnowYourAquifer from "./pages/know-your-aquifer";
 import GlobalMaps from "./pages/global-maps/global-maps";
 import { UserContext } from "./context/userContext";
+import { Analytics } from "@mui/icons-material";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
-  const {userDetails} = useContext(UserContext)
+  const { userDetails } = useContext(UserContext);
   const value = useContext(UserContext);
-  console.log(value,'VAL')
-   useEffect(() => {
-    let userDetails = localStorage.getItem('userDetails')
-    console.log(userDetails,'USER DETAILS')
-    if(userDetails){
-      value.dispatch({type:'SAVE',payload:userDetails})
+  console.log(value, "VAL");
+  useEffect(() => {
+    let userDetails = localStorage.getItem("userDetails");
+    console.log(userDetails, "USER DETAILS");
+    if (userDetails) {
+      value.dispatch({ type: "SAVE", payload: userDetails });
     }
-    
   }, []);
   return (
     <div className={darkMode ? "app dark" : "app"}>
@@ -44,8 +43,8 @@ function App() {
                 element={<New inputs={userInputs} title="Add New User" />}
               />
             </Route>
-            <Route path="aquifers" element={<KnowYourAquifer />}>
-            </Route>
+            <Route path="aquifers" element={<KnowYourAquifer />}></Route>
+            <Route path="analytics" element={<Analytics />}></Route>
             <Route path="globalmaps" element={<GlobalMaps />}></Route>
 
             <Route path="products">
