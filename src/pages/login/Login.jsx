@@ -12,6 +12,7 @@ function Login() {
   const [userType, SetUserType] = useState("Collector");
   const navigate = useNavigate();
   const { dispatch } = useContext(UserContext);
+  const { userDetails } = useContext(UserContext);
 
   let userOptions = ["Collector", "Supervisor", "Admin", "User"].map((el) => {
     return {
@@ -29,6 +30,12 @@ function Login() {
     localStorage.setItem("userDetails", userDetails);
     navigate("/");
   };
+  useEffect(() => {
+    if(userDetails){
+      navigate("/")
+    }
+    
+  }, []);
   return (
     <div className="super-container a-flex">
       <div className="image-container">
