@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import "./search.scss";
 import Map from "../../components/map";
 import RectangleContainer from "../../components/rectangle-container";
@@ -6,6 +6,7 @@ import { state_arr, s_a } from "../../utils/city";
 import Select from "react-select";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
+import axios from 'axios'
 let stateList = state_arr.map((el,i) => {
   return { value: el, label: el , id:i};
 });
@@ -18,6 +19,13 @@ function KnowyourAquifer() {
     return { value: el, label: el,id:i };
 
   })
+
+  useEffect(() => {
+    let url = 'http://localhost:8383/plotter'
+    axios.get(url).then((res)=>{
+      console.log(res,"APPI RES")
+    }).catch((err)=> console.log(err))
+  }, []);
   return (
     <div className="aquifer">
       <Sidebar />
