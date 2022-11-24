@@ -6,6 +6,8 @@ import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
 import { Link } from "react-router-dom";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,6 +22,9 @@ function Login() {
       value: el,
     };
   });
+  const closeLoginPopup = ()=>{
+    dispatch({type:"HIDELOGIN"})
+  }
   const onClickLogin = () => {
     console.log("Clicked on login");
     let userDetails = {
@@ -28,21 +33,16 @@ function Login() {
     };
     dispatch({ type: "SAVE", payload: userDetails });
     localStorage.setItem("userDetails", userDetails);
-    navigate("/");
+    navigate('/')
   };
-  useEffect(() => {
-    if(userDetails){
-      navigate("/")
-    }
-    
-  }, []);
   return (
     <div className="super-container a-flex">
-      <div className="image-container">
-        <img src={LoginImage} />
-      </div>
-      <div className="login">
+      <div className="login a-flex">
         <div className="login-container a-flex a-fdc">
+        <div className="a-wfull close-icon" onClick={closeLoginPopup}>
+        <CloseOutlinedIcon />
+        </div>
+
           <div className="a-flex a-fdc a-aic">
           <Link to="/" style={{textDecoration:'none',cursor:'pointer'}}>
             <div className="logo a-flex a-aic a-fdc">
@@ -86,7 +86,7 @@ function Login() {
           <button onClick={() => onClickLogin()}>Login</button>
           <div className="having-issues">Having issues?</div>
         </div>
-      </div>
+      </div>  
     </div>
   );
 }

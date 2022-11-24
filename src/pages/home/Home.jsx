@@ -10,11 +10,13 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import { useContext} from "react";
 import { UserContext } from "../../context/userContext";
+import Login from "../../pages/login/Login"
 
 
 
 const Home = () => {
-  const { userDetails } = useContext(UserContext);
+  const { userDetails,showLogin } = useContext(UserContext);
+  console.log(showLogin,"00000000")
   let currentUser = userDetails && userDetails.userType ?  userDetails.userType.toLowerCase() : 'guest'
   let widgetData;
   switch (currentUser) {
@@ -236,7 +238,8 @@ const Home = () => {
       break;
   }
   return (
-    <div className="home">
+    <>
+    <div className={`home ${showLogin ?'opacity-less' :''} `}>
       <Sidebar />
       <div className="homeContainer">
         <Navbar />
@@ -253,8 +256,13 @@ const Home = () => {
           <div className="listTitle">Latest Trackings:-</div>
           <Table />
         </div>
+
       </div>
     </div>
+    {showLogin && <Login />}
+
+    </>
+    
   );
 };
 

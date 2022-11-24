@@ -29,6 +29,28 @@
         }
       }
     }
+    li {
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      cursor: pointer;
+      margin-top: 13px;
+      &:hover {
+        background-color: #ece8ff;
+      }
+
+      .icon {
+        font-size: 18px;
+        color: #7451f8;
+      }
+
+      span{
+          font-size: 13px;
+          font-weight: 600;
+          color: #888;
+          margin-left: 10px;
+      }
+    }
 
     .items {
       display: flex;

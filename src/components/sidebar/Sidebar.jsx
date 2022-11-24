@@ -6,7 +6,6 @@ import CreditCardIcon from "@mui/icons-material/CreditCard";
 import StoreIcon from "@mui/icons-material/Store";
 import InsertChartIcon from "@mui/icons-material/InsertChart";
 import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
@@ -21,14 +20,8 @@ import {
   SourceOutlined,
   TrackChangesOutlined,
 } from "@mui/icons-material";
-import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
-  const { userDetails,dispatch :dispatchUserDetails } = useContext(UserContext);
-  const onClickLogout = ()=>{
-    dispatchUserDetails({type:'REMOVE'})
-    localStorage.removeItem('userDetails')
-  }
   return (
     <div className="sidebar">
       <div className="top">
@@ -90,20 +83,7 @@ const Sidebar = () => {
         
           
           
-          
-          {userDetails ? (
-            <li onClick={onClickLogout}>
-              <ExitToAppIcon className="icon" />
-              <span>Logout</span>
-            </li>
-          ) : (
-            <Link to="/login" style={{ textDecoration: "none" }}>
-              <li>
-                <LoginOutlinedIcon className="icon" />
-                <span>Login</span>
-              </li>
-            </Link>
-          )}
+      
         </ul>
       </div>
       <div className="bottom">

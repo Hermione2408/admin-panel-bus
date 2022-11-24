@@ -10,7 +10,8 @@ import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../context/userContext";
-
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 const Navbar = () => {
   const { dispatch } = useContext(DarkModeContext);
   const [showNotifications, setShowNotifications] = useState(false);
@@ -46,7 +47,17 @@ const Navbar = () => {
       img: NotificationsNoneOutlinedIcon,
     },
   ]);
-  const { userDetails} = useContext(UserContext);
+  const [showLogin,setShowLogin] = useState(false)
+  const { userDetails,dispatch :dispatchUserDetails } = useContext(UserContext);
+  console.log(userDetails,"--------")
+  const onClickLogout = ()=>{
+    dispatchUserDetails({type:'REMOVE'})
+    localStorage.removeItem('userDetails')
+  }
+  const onClickLogin = ()=>{
+    dispatchUserDetails({type:'SHOWLOGIN'})
+    setShowLogin(true)
+  }
 
   const removeNotification = (index) => {
     let notificationsCopy = notificationsArray;
@@ -124,6 +135,17 @@ const Navbar = () => {
               className="avatar"
             />
           </div>}
+          {userDetails ? (
+            <div onClick={onClickLogout} className="item">
+              <ExitToAppIcon className="icon" />
+              <span>Logout</span>
+            </div>
+          ) : (
+              <div className="item" onClick={onClickLogin}>
+                <LoginOutlinedIcon className="icon" />
+                <span>Login</span>
+              </div>
+          )}
         </div>
       </div>
     </div>

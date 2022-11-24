@@ -11,6 +11,16 @@ const UserReducer = (state, action) => {
           userDetails: action.payload,
         };
       }
+      case "SHOWLOGIN":{
+        return{
+          showLogin:true
+        }
+      }
+      case "HIDELOGIN":{
+        return{
+          showLogin:false
+        }
+      }
       default:
         return state;
     }

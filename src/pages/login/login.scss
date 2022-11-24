@@ -1,13 +1,14 @@
 
 .super-container{
-    position: fixed;
-    top: 0px;
-    background-color: white;
-    height: 100vh;
-    width: 100vw;
-    background-color: var(--primary-color);
+    height: 80vh;
+    width: 50vw;
     padding-bottom: 32px;
+    position: fixed;
+    top: 0;
+    left: 25%;
+    background: white;
 }
+
 .login-container{
     background-color: white;
     padding: 32px;
@@ -16,7 +17,12 @@
 .password{
     margin-top: 24px;
 }
+.close-icon{
+    margin-left: 100%;
+}
 .login{
+    height: 100%;
+    width: 100vw;
     padding-left: 12.5%;
     padding-top: 38px;
 }
@@ -41,14 +47,6 @@ input{
     margin-top: 24px;
 }
 
-.image-container{
-
-}
-.image-container img{
-    height: 100vh;
-    width: 50vw;
-
-}
 .having-issues{
     margin-top: 112px;
     text-align: center;
