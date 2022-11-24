@@ -134,7 +134,7 @@ const Navbar = () => {
               className="avatar"
             />
           </div>}
-          {userDetails !==null ? (
+          {userDetails ? (
             <div onClick={onClickLogout} className="item">
               <ExitToAppIcon className="icon" />
               <span>Logout</span>

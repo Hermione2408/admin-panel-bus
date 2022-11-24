@@ -12,7 +12,7 @@ const Widget = (props) => {
   return (
     <div className="widget" style={{backgroundColor:data.colorCode ? (data.count> 50 ? '#EB1D36' : (data.count < 25 ?'#36AE7C':'#F9D923')) : 'white'}}>
       <div className="left">
-        <span className="title" style={{color:data.isCount &&data.colorCode && 'white'}}>{data.title}</span>
+        <span className="title" style={{color:data.isCount &&data.colorCode && 'black'}}>{data.title}</span>
         <span className="counter">
           {data.isMoney && "$"}
         </span>
