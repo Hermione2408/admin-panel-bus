@@ -20,10 +20,10 @@ const Home = () => {
   let currentUser = userDetails && userDetails.userType ?  userDetails.userType.toLowerCase() : 'guest'
   let widgetData;
   switch (currentUser) {
-    case 'collector':
+    case 'admin':
       widgetData = [
         {
-          title: "No. of pending aquifer to plot",
+          title: "No. of aquifer where depletion is greater than 50%",
           isMoney: false,
           isCount:true,
           count: 34,
@@ -35,7 +35,7 @@ const Home = () => {
           ),
         },
         {
-          title: "No. of principal aquifers",
+          title: "No. of supervisors",
           isMoney: false,
           isCount:true,
           count: 11,
@@ -50,7 +50,7 @@ const Home = () => {
           ),
         },
         {
-          title: "Alerts",
+          title: "Generate survey",
           isMoney: false,
           isCount:true,
           count: 98,
@@ -127,7 +127,7 @@ const Home = () => {
         },
       ];
       break;
-    case 'admin':
+    case 'collector':
       widgetData = [
         {
           title: "No. of supervisors",
