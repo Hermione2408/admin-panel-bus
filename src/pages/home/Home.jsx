@@ -12,15 +12,16 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 const Home = () => {
   let user_type = ['collector', 'supervisor', 'admin', 'user']
-  let currentUser = 'guest'
+  let currentUser = 'supervisor'
   let widgetData;
   switch (currentUser) {
     case 'collector':
       widgetData = [
         {
-          title: "SEARCH ACQUIFER",
+          title: "No. of pending aquifer to plot",
           isMoney: false,
-          link: "Search Acquifer",
+          isCount:true,
+          count: 34,
           icon: (
             <SearchOutlined
               className="icon"
@@ -29,9 +30,10 @@ const Home = () => {
           ),
         },
         {
-          title: "WORLD ACQUIFERS",
+          title: "No. of principal aquifers",
           isMoney: false,
-          link: "View all Acquifers",
+          isCount:true,
+          count: 11,
           icon: (
             <ListAltOutlined
               className="icon"
@@ -43,9 +45,10 @@ const Home = () => {
           ),
         },
         {
-          title: "COUNTRY ACQUIFERS",
+          title: "Alerts",
           isMoney: false,
-          link: "See details",
+          isCount:true,
+          count: 98,
           icon: (
             <AccountBalanceWalletOutlinedIcon
               className="icon"
@@ -55,29 +58,16 @@ const Home = () => {
               }}
             />
           ),
-        },
-        {
-          title: "USERS",
-          isMoney: false,
-          link: "See all users",
-          icon: (
-            <PersonOutlinedIcon
-              className="icon"
-              style={{
-                color: "crimson",
-                backgroundColor: "rgba(255, 0, 0, 0.2)",
-              }}
-            />
-          ),
-        },
+        }
       ];
       break;
     case 'supervisor':
       widgetData = [
         {
-          title: "SEARCH ACQUIFER",
+          title: "No. of data collectors",
           isMoney: false,
-          link: "Search Acquifer",
+          isCount:true,
+          count: 23,
           icon: (
             <SearchOutlined
               className="icon"
@@ -86,9 +76,10 @@ const Home = () => {
           ),
         },
         {
-          title: "WORLD ACQUIFERS",
+          title: "No. of principal aquifers",
           isMoney: false,
-          link: "View all Acquifers",
+          isCount:true,
+          count: 21,
           icon: (
             <ListAltOutlined
               className="icon"
@@ -100,9 +91,10 @@ const Home = () => {
           ),
         },
         {
-          title: "COUNTRY ACQUIFERS",
+          title: "No. of pending tasks",
           isMoney: false,
-          link: "See details",
+          isCount:true,
+          count: 17,
           icon: (
             <AccountBalanceWalletOutlinedIcon
               className="icon"
@@ -114,9 +106,10 @@ const Home = () => {
           ),
         },
         {
-          title: "USERS",
+          title: "Alerts",
           isMoney: false,
-          link: "See all users",
+          isCount:true,
+          count: 76,
           icon: (
             <PersonOutlinedIcon
               className="icon"
@@ -132,9 +125,10 @@ const Home = () => {
     case 'admin':
       widgetData = [
         {
-          title: "SEARCH ACQUIFER",
+          title: "No. of supervisors",
           isMoney: false,
-          link: "Search Acquifer",
+          isCount:true,
+          count: 13,
           icon: (
             <SearchOutlined
               className="icon"
@@ -143,9 +137,10 @@ const Home = () => {
           ),
         },
         {
-          title: "WORLD ACQUIFERS",
+          title: "No. of principal aquifers",
           isMoney: false,
-          link: "View all Acquifers",
+          isCount:true,
+          count: 11,
           icon: (
             <ListAltOutlined
               className="icon"
@@ -157,9 +152,10 @@ const Home = () => {
           ),
         },
         {
-          title: "COUNTRY ACQUIFERS",
+          title: "No. of pending tasks",
           isMoney: false,
-          link: "See details",
+          isCount:true,
+          count: 17,
           icon: (
             <AccountBalanceWalletOutlinedIcon
               className="icon"
@@ -171,9 +167,10 @@ const Home = () => {
           ),
         },
         {
-          title: "USERS",
+          title: "Alerts",
           isMoney: false,
-          link: "See all users",
+          isCount:true,
+          count: 76,
           icon: (
             <PersonOutlinedIcon
               className="icon"
@@ -189,9 +186,10 @@ const Home = () => {
     case 'user':
       widgetData = [
         {
-          title: "SEARCH ACQUIFER",
+          title: "No. of Aquifers",
           isMoney: false,
-          link: "Search Acquifer",
+          isCount:true,
+          count:34,
           icon: (
             <SearchOutlined
               className="icon"
@@ -200,9 +198,10 @@ const Home = () => {
           ),
         },
         {
-          title: "WORLD ACQUIFERS",
+          title: "Alerts",
           isMoney: false,
-          link: "View all Acquifers",
+          isCount:true,
+          count:26,
           icon: (
             <ListAltOutlined
               className="icon"
@@ -213,34 +212,7 @@ const Home = () => {
             />
           ),
         },
-        {
-          title: "COUNTRY ACQUIFERS",
-          isMoney: false,
-          link: "See details",
-          icon: (
-            <AccountBalanceWalletOutlinedIcon
-              className="icon"
-              style={{
-                backgroundColor: "rgba(128, 0, 128, 0.2)",
-                color: "purple",
-              }}
-            />
-          ),
-        },
-        {
-          title: "USERS",
-          isMoney: false,
-          link: "See all users",
-          icon: (
-            <PersonOutlinedIcon
-              className="icon"
-              style={{
-                color: "crimson",
-                backgroundColor: "rgba(255, 0, 0, 0.2)",
-              }}
-            />
-          ),
-        },
+        
       ];
       break;
     default:

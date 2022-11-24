@@ -10,13 +10,24 @@ import "./style/dimension.css"
 import "./style/flex.css"
 import "./style/styles.css"
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import KnowYourAquifer from "./pages/know-your-aquifer"
 import GlobalMaps from "./pages/global-maps/global-maps";
+import { UserContext } from "./context/userContext";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
-
+  const {userDetails} = useContext(UserContext)
+  const value = useContext(UserContext);
+  console.log(value,'VAL')
+   useEffect(() => {
+    let userDetails = localStorage.getItem('userDetails')
+    console.log(userDetails,'USER DETAILS')
+    if(userDetails){
+      value.dispatch({type:'SAVE',payload:userDetails})
+    }
+    
+  }, []);
   return (
     <div className={darkMode ? "app dark" : "app"}>
       <BrowserRouter>
@@ -44,6 +55,7 @@ function App() {
                 element={<New inputs={productInputs} title="Add New Product" />}
               />
             </Route>
+            <Route path="login" element={<Login />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
