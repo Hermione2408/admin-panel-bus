@@ -5,7 +5,6 @@ import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUpload
 import { useState } from "react";
 import Select from "react-select";
 import { state_arr, s_a } from "../../utils/city";
-import toast from 'react-hot-toast';
 import axios from "axios";
 
 
@@ -40,11 +39,7 @@ const New = ({ inputs, title }) => {
 
   const SubmitForm = ()=>{
     console.log('FORM SUBMIT')
-    if(!id || !state || !district || !type || !amount || !quality || !lat || !long){
-      console.log('ERROR')
-      //return toast('One or more fields invalid')
-    }
-    else{
+    
       let dataToSend={
         state:state, 
         district:district, 
@@ -56,13 +51,12 @@ const New = ({ inputs, title }) => {
         annuHigh:annHigh, 
         annuLow:annLow, 
         Time: new Date().getTime(), 
-        ID:generateString(4)
+        ID:'assss'
     }
     console.log(dataToSend,"DATA")
     let url = 'http://localhost:8383/bulkData'
     axios.post(url,{body:dataToSend}).then((res)=> console.log(res,"RESS"))
     .catch((err)=>console.log(err)) 
-  }
 }
 
   let districtList = s_a[selectedStateIndex+1].split("|")
@@ -90,8 +84,8 @@ const New = ({ inputs, title }) => {
             />
           </div>
           <div className="right">
-            <form>
-              <div className="formInput">
+            <div className="form">
+              {/* <div className="formInput">
                 <label htmlFor="file">
                   Image: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
@@ -101,7 +95,7 @@ const New = ({ inputs, title }) => {
                   onChange={(e) => setFile(e.target.files[0])}
                   style={{ display: "none" }}
                 />
-              </div>
+              </div> */}
               <div className="formInput">
                   <label>ID</label>
                   <input value={id} onChange={(e)=>setId(e.target.value)} type='text' placeholder={'john'} />
@@ -136,7 +130,7 @@ const New = ({ inputs, title }) => {
               </div>
               <div className="formInput" >
                   <label>Longitdue</label>
-                  <input value={long} onChange={(e)=>setLat(e.target.value)} type='text' placeholder={70.22} />
+                  <input value={long} onChange={(e)=>setLong(e.target.value)} type='text' placeholder={70.22} />
               </div>
               <div className="formInput" >
                   <label>Annual High</label>
@@ -147,7 +141,7 @@ const New = ({ inputs, title }) => {
                   <input value={annLow} onChange={(e)=>setAnnLow(e.target.value)} type='text' placeholder={89} />
               </div>
               <button onClick={()=>SubmitForm()}>Send</button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
