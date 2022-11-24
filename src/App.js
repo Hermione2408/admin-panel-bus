@@ -16,6 +16,7 @@ import KnowYourAquifer from "./pages/know-your-aquifer";
 import GlobalMaps from "./pages/global-maps/global-maps";
 import { UserContext } from "./context/userContext";
 import Analysis from "./pages/analysis/analysis"
+import Survey from "./components/generateSurvey/generateSurvey";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
   const { userDetails } = useContext(UserContext);
@@ -43,6 +44,7 @@ function App() {
                 element={<New inputs={userInputs} title="Add New User" />}
               />
             </Route>
+            <Route path="survey" element={<Survey />}></Route>
             <Route path="aquifers" element={<KnowYourAquifer />}></Route>
             <Route path="globalmaps" element={<GlobalMaps />}></Route>
             <Route path="analysis" element={<Analysis />}></Route>

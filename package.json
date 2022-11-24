@@ -24,6 +24,8 @@
     "react-tooltip": "^4.5.1",
     "recharts": "^2.1.16",
     "sass": "^1.49.9",
+    "survey-core": "^1.9.59",
+    "survey-react-ui": "^1.9.59",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

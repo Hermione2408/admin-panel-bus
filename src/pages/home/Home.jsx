@@ -11,8 +11,8 @@ import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalance
 import { useContext} from "react";
 import { UserContext } from "../../context/userContext";
 import Login from "../../pages/login/Login"
-
-
+import PollRoundedIcon from '@mui/icons-material/PollRounded';
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const { userDetails,showLogin } = useContext(UserContext);
@@ -29,27 +29,13 @@ const Home = () => {
           count: 34,
           colorCode:true,
           total:141,
-          icon: (
-            <SearchOutlined
-              className="icon"
-              style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
-            />
-          ),
         },
         {
           title: "No. of supervisors",
           isMoney: false,
           isCount:true,
           count: 11,
-          icon: (
-            <ListAltOutlined
-              className="icon"
-              style={{
-                backgroundColor: "rgba(218, 165, 32, 0.2)",
-                color: "goldenrod",
-              }}
-            />
-          ),
+          
         },
         {
           title: "Generate survey",
@@ -57,13 +43,15 @@ const Home = () => {
           isCount:true,
           count: 98,
           icon: (
-            <AccountBalanceWalletOutlinedIcon
+            <Link to="/survey">
+            <PollRoundedIcon
               className="icon"
               style={{
                 backgroundColor: "rgba(128, 0, 128, 0.2)",
                 color: "purple",
               }}
             />
+            </Link>
           ),
         }
       ];
@@ -75,12 +63,7 @@ const Home = () => {
           isMoney: false,
           isCount:true,
           count: 6,
-          icon: (
-            <SearchOutlined
-              className="icon"
-              style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
-            />
-          ),
+          
         },
         {
           title: "No. of aquifers depletion greather than 50%",
@@ -89,45 +72,19 @@ const Home = () => {
           count: 21,
           colorCode:true,
           total:141,
-          icon: (
-            <ListAltOutlined
-              className="icon"
-              style={{
-                backgroundColor: "rgba(218, 165, 32, 0.2)",
-                color: "goldenrod",
-              }}
-            />
-          ),
+          
         },
         {
           title: "Data to be reviewed",
           isMoney: false,
           isCount:true,
           count: 17,
-          icon: (
-            <AccountBalanceWalletOutlinedIcon
-              className="icon"
-              style={{
-                backgroundColor: "rgba(128, 0, 128, 0.2)",
-                color: "purple",
-              }}
-            />
-          ),
         },
         {
           title: "Alerts",
           isMoney: false,
           isCount:true,
           count: 76,
-          icon: (
-            <PersonOutlinedIcon
-              className="icon"
-              style={{
-                color: "crimson",
-                backgroundColor: "rgba(255, 0, 0, 0.2)",
-              }}
-            />
-          ),
         },
       ];
       break;
@@ -138,12 +95,7 @@ const Home = () => {
           isMoney: false,
           isCount:true,
           count: 13,
-          icon: (
-            <SearchOutlined
-              className="icon"
-              style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
-            />
-          ),
+          
         },
         {
           title: "No. of aquifer depletion greater than 50%",
@@ -152,45 +104,21 @@ const Home = () => {
           colorCode:true,
           total:141,
           count: 11,
-          icon: (
-            <ListAltOutlined
-              className="icon"
-              style={{
-                backgroundColor: "rgba(218, 165, 32, 0.2)",
-                color: "goldenrod",
-              }}
-            />
-          ),
+          
         },
         {
           title: "Data filled",
           isMoney: false,
           isCount:true,
           count: 17,
-          icon: (
-            <AccountBalanceWalletOutlinedIcon
-              className="icon"
-              style={{
-                backgroundColor: "rgba(128, 0, 128, 0.2)",
-                color: "purple",
-              }}
-            />
-          ),
+          
         },
         {
           title: "Alerts",
           isMoney: false,
           isCount:true,
           count: 76,
-          icon: (
-            <PersonOutlinedIcon
-              className="icon"
-              style={{
-                color: "crimson",
-                backgroundColor: "rgba(255, 0, 0, 0.2)",
-              }}
-            />
-          ),
+          
         },
       ];
       break;
@@ -203,39 +131,18 @@ const Home = () => {
           colorCode:true,
           total:141,
           count:34,
-          icon: (
-            <SearchOutlined
-              className="icon"
-              style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
-            />
-          ),
         },
         {
           title: "Open surveys",
           isMoney: false,
           isCount:true,
           count:24,
-          icon: (
-            <SearchOutlined
-              className="icon"
-              style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
-            />
-          ),
         },
         {
           title: "Quality level of water",
           isMoney: false,
           isCount:true,
           count:64,
-          icon: (
-            <ListAltOutlined
-              className="icon"
-              style={{
-                backgroundColor: "rgba(218, 165, 32, 0.2)",
-                color: "goldenrod",
-              }}
-            />
-          ),
         },
         
         {
@@ -243,15 +150,6 @@ const Home = () => {
           isMoney: false,
           isCount:true,
           count:26,
-          icon: (
-            <ListAltOutlined
-              className="icon"
-              style={{
-                backgroundColor: "rgba(218, 165, 32, 0.2)",
-                color: "goldenrod",
-              }}
-            />
-          ),
         },
         
       ];

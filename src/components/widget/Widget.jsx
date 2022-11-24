@@ -25,8 +25,8 @@ const Widget = (props) => {
           <KeyboardArrowUpIcon />
           
         </div>
-        {data.icon}
       </div>}
+      {data.icon ? data.icon :null}
 
     </div>
   );
