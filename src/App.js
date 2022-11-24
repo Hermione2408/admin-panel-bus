@@ -9,6 +9,7 @@ import "./style/dark.scss";
 import "./style/dimension.css"
 import "./style/flex.css"
 import "./style/styles.css"
+import { Toaster } from 'react-hot-toast';
 
 import { useContext, useEffect } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
