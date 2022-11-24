@@ -15,7 +15,7 @@ const style = {
 
 let markers=[{lat: 28.6139,lng: 77.2090,name:'Aquifer 1'},{lat: 28.6239,lng: 77.2090,name:'Aquifer 2', id:'uuuuusads'},{lat: 28.6539,lng: 77.2090,name:'Aquifer 3'},{lat: 28.6139,lng: 77.3090,name:'Aquifer 4'}]
 
-function AquiferMap() {
+function AquiferMap(props) {
     const { isLoaded } = useJsApiLoader({
       id: 'google-map-script',
       googleMapsApiKey: "AIzaSyATAfGyTPR3xangiUORz9P7qlnIZKbsaFw"
@@ -32,7 +32,7 @@ function AquiferMap() {
         //this.setState({selectedElement:aquiferData,activeMarker:marker})
     }
 
-  
+    const {MarkerList} = props
     return isLoaded ? (
         <GoogleMap
           mapContainerStyle={style}
@@ -40,23 +40,26 @@ function AquiferMap() {
           zoom={7}
         >
           { /* Child components, such as markers, info windows, etc. */ }
-          {markers.map((el,i)=>{
+          {MarkerList.map((el,i)=>{
             return(
             <Marker
-             position={el}
+             position={{lat:parseInt(el.Latitude),lng:parseInt(el.Longitude)}}
               key={i}
               onClick={(props, marker) => { onClickMarker(props,marker,el) }}
               >
                 
-            {(selectedElement ? el.name==selectedElement.name : false) &&<InfoWindow
-                position={el}
+            {(selectedElement ? el.id==selectedElement.id : false) &&<InfoWindow
+                position={{lat:parseInt(el.Latitude),lng:parseInt(el.Longitude)}}
                 marker={activeMarker}
                 onCloseClick={() => {
                     setSelectedElement(null)
                 }}
             >
                 <div>
-                <h1>{el.name}</h1>
+                <h1>Type:{el.Type}</h1>
+                <p>Annual High:{el['Annual High']}</p>
+                <p>Annual Low:{el['Annual Low']}</p>
+                <p>Amount:{el['Amount']}</p>
                 </div>
             </InfoWindow>}
             

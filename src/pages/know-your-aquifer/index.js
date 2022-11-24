@@ -14,6 +14,7 @@ let stateList = state_arr.map((el,i) => {
 function KnowyourAquifer() {
 
   const [selectedStateIndex,SetSelectedStateIndex] = useState(0)
+  const [markerList,setMarkerList] = useState([])
   let districtList = s_a[selectedStateIndex+1].split("|")
   let districtData = districtList.map((el,i)=>{
     return { value: el, label: el,id:i };
@@ -23,7 +24,17 @@ function KnowyourAquifer() {
   useEffect(() => {
     let url = 'http://localhost:8383/plotter'
     axios.get(url).then((res)=>{
-      console.log(res,"APPI RES")
+      let apiData = res.data
+      let markerData=[]
+      if(apiData){
+        apiData.forEach((data)=>{
+          let firstLevelObj  = data[Object.keys(data)[0]]
+          let uniqueKey =Object.keys(data)[0]
+          let secondLevelObj = firstLevelObj[Object.keys(firstLevelObj)[0]]
+          markerData.push({...secondLevelObj,id:uniqueKey})
+        })
+      }
+      setMarkerList(markerData)
     }).catch((err)=> console.log(err))
   }, []);
   return (
@@ -67,7 +78,7 @@ function KnowyourAquifer() {
               </div>
             </div>
             <div className="map-container">
-              <Map />
+              <Map MarkerList ={markerList} />
             </div>
           </div>
         </div>
