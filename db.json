@@ -1,0 +1,18 @@
+{
+    "buslist":[
+        {
+            "id":"12",
+            "driverName":"Rohit",
+            "depart_from":"Ajmer",
+            "going_to":"Jaipur",
+            "stations":["Pratap Nagar","Sanaganer","jhotwada"],
+            "last_ten_rides":[ 
+                {"noOfPassenger":34}
+            ],
+            "no_of_seats":60,
+            "live_status":{"isrunning":true,"seatVacant":32}
+            
+
+        }
+    ]
+}

@@ -26,7 +26,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">AquaTech</span>
+          <span className="logo">Admin Panel</span>
         </Link>
       </div>
       <hr />
@@ -42,7 +42,7 @@ const Sidebar = () => {
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
-              <span>View Entries</span>
+              <span>Bus List</span>
             </li>
           </Link>
           <Link to="/aquifers" style={{ textDecoration: "none" }}>

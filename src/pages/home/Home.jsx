@@ -178,7 +178,6 @@ const Home = () => {
     <div className={`home ${showLogin ?'opacity-less' :''} `}>
       <Sidebar />
       <div className="homeContainer">
-        <Navbar />
         <div className="widgets">
           {widgetData.map((el)=>{
             return <Widget data={el} />
