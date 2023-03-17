@@ -36,7 +36,7 @@ const Sidebar = () => {
           <Link to="/" style={{ textDecoration: "none" }}>
             <li>
               <DashboardIcon className="icon" />
-              <span>Principal Aquifer</span>
+              <span>Home</span>
             </li>
           </Link>
           <Link to="/users" style={{ textDecoration: "none" }}>
@@ -45,12 +45,12 @@ const Sidebar = () => {
               <span>Bus List</span>
             </li>
           </Link>
-          <Link to="/aquifers" style={{ textDecoration: "none" }}>
+          {/* <Link to="/aquifers" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
               <span>Aquifers</span>
             </li>
-          </Link>
+          </Link> */}
           <li>
             <SourceOutlined className="icon" />
             <span>About</span>
@@ -65,7 +65,7 @@ const Sidebar = () => {
           <Link to="/globalmaps" style={{ textDecoration: "none" }}>
             <li>
               <MapOutlined className="icon" />
-              <span>Global Maps</span>
+              <span>Live Map</span>
             </li>
           </Link>
 

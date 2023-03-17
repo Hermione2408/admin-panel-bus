@@ -1,11 +1,13 @@
 import "./chart.scss";
 import {
-  AreaChart,
+  CartesianGrid,
   Area,
   XAxis,
-  CartesianGrid,
   Tooltip,
-  ResponsiveContainer,
+  YAxis,
+  Legend,
+  LineChart,
+  Line
 } from "recharts";
 
 const data = [
@@ -17,36 +19,18 @@ const data = [
   { name: "June", Total: 1700 },
 ];
 
-const Chart = ({ aspect, title }) => {
+const Chart = ({ aspect, title, data }) => {
+  console.log(data,"DAtA")
   return (
-    <div className="chart">
-      <div className="title">{title}</div>
-      <ResponsiveContainer width="100%" aspect={aspect}>
-        <AreaChart
-          width={730}
-          height={250}
-          data={data}
-          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-        >
-          <defs>
-            <linearGradient id="total" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
-            </linearGradient>
-          </defs>
-          <XAxis dataKey="name" stroke="gray" />
-          <CartesianGrid strokeDasharray="3 3" className="chartGrid" />
-          <Tooltip />
-          <Area
-            type="monotone"
-            dataKey="Total"
-            stroke="#8884d8"
-            fillOpacity={1}
-            fill="url(#total)"
-          />
-        </AreaChart>
-      </ResponsiveContainer>
-    </div>
+    <LineChart width={600} height={300} data={data}>
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="date" />
+      <YAxis />
+      <Tooltip formatter={(value, name) => [value, `${name}`]} />
+      <Legend />
+      <Line type="monotone" dataKey="seats_occupied" stroke="#8884d8" fill="#8884d8" name="Seats Occupied"  />
+      <Area type="monotone" dataKey="seats_occupied" stroke="#8884d8" fill="#8884d8" />
+    </LineChart>
   );
 };
 

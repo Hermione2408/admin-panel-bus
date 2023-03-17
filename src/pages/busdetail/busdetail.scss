@@ -3,12 +3,13 @@
   width: 100%;
   .singleContainer {
     flex: 6;
-
+    display: flex;
     .top {
       padding: 20px;
       display: flex;
+      flex-direction: column;
       gap: 20px;
-
+      flex:2;
       .left {
         flex: 1;
         -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
@@ -62,17 +63,19 @@
           }
         }
       }
-
-      .right {
-        flex: 2;
-      }
     }
-
+    .right {
+      flex: 2;
+      padding: 20px;
+    }
     .bottom {
       -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
       box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
       padding: 20px;
       margin: 10px 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 3;
     }
 
     .title {
@@ -81,4 +84,7 @@
       margin-bottom: 20px;
     }
   }
+}
+.station-seats{
+  display: flex;
 }
