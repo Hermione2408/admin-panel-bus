@@ -11,7 +11,7 @@ import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userType, SetUserType] = useState("Collector");
+  const [userType, SetUserType] = useState("Admin");
   const navigate = useNavigate();
   const { dispatch } = useContext(UserContext);
   const { userDetails } = useContext(UserContext);

@@ -1,5 +1,7 @@
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
+import BusRoute from "../../components/trackBus/trackBus";
+import Header from "../../components/header/header";
 import "./home.scss";
 import Widget from "../../components/widget/Widget";
 import Featured from "../../components/featured/Featured";
@@ -18,166 +20,56 @@ const Home = () => {
   const { userDetails,showLogin } = useContext(UserContext);
   console.log(showLogin,"00000000")
   let currentUser = userDetails && userDetails.userType ?  userDetails.userType.toLowerCase() : 'guest'
-  let widgetData;
-  switch (currentUser) {
-    case 'admin':
-      widgetData = [
-        {
-          title: "No. of aquifer where depletion is greater than 50%",
-          isMoney: false,
-          isCount:true,
-          count: 34,
-          colorCode:true,
-          total:141,
-        },
-        {
-          title: "No. of supervisors",
-          isMoney: false,
-          isCount:true,
-          count: 11,
-          
-        },
-        {
-          title: "Generate survey",
-          isMoney: false,
-          isCount:true,
-          count: 98,
-          icon: (
-            <Link to="/survey">
-            <PollRoundedIcon
-              className="icon"
-              style={{
-                backgroundColor: "rgba(128, 0, 128, 0.2)",
-                color: "purple",
-              }}
-            />
-            </Link>
-          ),
-        }
-      ];
-      break;
-    case 'supervisor':
-      widgetData = [
-        {
-          title: "No. of data collectors",
-          isMoney: false,
-          isCount:true,
-          count: 6,
-          
-        },
-        {
-          title: "No. of aquifers depletion greather than 50%",
-          isMoney: false,
-          isCount:true,
-          count: 21,
-          colorCode:true,
-          total:141,
-          
-        },
-        {
-          title: "Data to be reviewed",
-          isMoney: false,
-          isCount:true,
-          count: 17,
-        },
-        {
-          title: "Alerts",
-          isMoney: false,
-          isCount:true,
-          count: 76,
-        },
-      ];
-      break;
-    case 'collector':
-      widgetData = [
-        {
-          title: "No. of assigned aquifers",
-          isMoney: false,
-          isCount:true,
-          count: 13,
-          
-        },
-        {
-          title: "No. of aquifer depletion greater than 50%",
-          isMoney: false,
-          isCount:true,
-          colorCode:true,
-          total:141,
-          count: 11,
-          
-        },
-        {
-          title: "Data filled",
-          isMoney: false,
-          isCount:true,
-          count: 17,
-          
-        },
-        {
-          title: "Alerts",
-          isMoney: false,
-          isCount:true,
-          count: 76,
-          
-        },
-      ];
-      break;
-    case 'user':
-      widgetData = [
-        {
-          title: "No. of Aquifers depltetion greater than 50% under 20km",
-          isMoney: false,
-          isCount:true,
-          colorCode:true,
-          total:141,
-          count:34,
-        },
-        {
-          title: "Open surveys",
-          isMoney: false,
-          isCount:true,
-          count:24,
-        },
-        {
-          title: "Quality level of water",
-          isMoney: false,
-          isCount:true,
-          count:64,
-        },
-        
-        {
-          title: "Alerts",
-          isMoney: false,
-          isCount:true,
-          count:26,
-        },
-        
-      ];
-      break;
-    default:
-      widgetData = [
-        {
-          title: "No. of Aquifer",
-          isMoney: false,
-          isCount:true,
-          count:19,
-          total:141,
-          colorCode:true,
-          icon: (
-            <SearchOutlined
-              className="icon"
-              style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
-            />
-          ),
-        },
-      ];
-      break;
-  }
+  let widgetData=[
+    {
+      title: "No. of buses currently running",
+      isMoney: false,
+      isCount:true,
+      count: 34,
+      colorCode:true,
+      total:141,
+    },
+    {
+      title: "No. of supervisors",
+      isMoney: false,
+      isCount:true,
+      count: 11,
+      
+    },  {
+      title: "No. of aquifers depletion greather than 50%",
+      isMoney: false,
+      isCount:true,
+      count: 21,
+      colorCode:true,
+      total:141,
+      
+    },
+    {
+      title: "Generate survey",
+      isMoney: false,
+      isCount:true,
+      count: 98,
+      icon: (
+        <Link to="/survey">
+        <PollRoundedIcon
+          className="icon"
+          style={{
+            backgroundColor: "rgba(128, 0, 128, 0.2)",
+            color: "purple",
+          }}
+        />
+        </Link>
+      ),
+    }
+  ];;
+ 
   return (
     <>
     <div className={`home ${showLogin ?'opacity-less' :''} `}>
       <Sidebar />
+      
       <div className="homeContainer">
+        <div><Header/></div> 
         <div className="widgets">
           {widgetData.map((el)=>{
             return <Widget data={el} />
@@ -186,6 +78,9 @@ const Home = () => {
         <div className="charts">
           <Featured />
           <Chart title="Last 6 Months (Capacity Vs Month Graph)" aspect={2 / 1} />
+        </div>
+        <div>
+          <BusRoute/>
         </div>
         {userDetails && userDetails.userType &&  userDetails.userType === 'Supervisor' &&<div className="listContainer">
           <div className="listTitle">Latest Trackings:-</div>
